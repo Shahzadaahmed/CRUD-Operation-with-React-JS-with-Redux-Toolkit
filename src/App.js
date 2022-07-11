@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+// Note: App component...!
+// Note: Redux persist is integrated and it's code is commited...!
 
-function App() {
+import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
+// import { PersistGate } from 'redux-persist/integration/react';
+import {
+  store,
+  // persistor
+}
+  from './redux/store/store';
+
+// Note: Importing required components...!
+import Crud from './components/crud/crud';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Provider store={store}>
+        {/* <PersistGate persistor={persistor}> */}
+        <Crud />
+        {/* </PersistGate> */}
+      </Provider>
+    </Fragment>
   );
 }
 
